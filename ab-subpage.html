@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"3283726c53",applicationID:"2874630"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+				<title>About Us, Products, Platforms | Asia Briefing</title>
+				<meta name="description" content="Asia Briefing provides individuals and enterprises with business and regulatory news as well as expert commentary relating to doing business in emerging Asia" />
+				<meta name="keyword" content="" />
+              <meta property="og:title" content="About Us, Products, Platforms | Asia Briefing"/>
+<meta property="og:description" content="Asia Briefing provides individuals and enterprises with business and regulatory news as well as expert commentary relating to doing business in emerging Asia"/>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/style.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://www.dezshira.com/themes/dsa/js/html5shiv.min.js"></script>
+      <script src="https://www.dezshira.com/themes/dsa/js/respond.min.js"></script>
+    <![endif]-->
+
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+    <div class="navbar stickyBar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://www.asiabriefing.com/"><i><img  alt="" src="https://www.asiabriefing.com/mockups/AB-2020/images/AB-logo-s2.svg"> </i></a>
+            </div>
+     
+            <div class="navbar-collapse collapse" id="navbar-collapse-1">
+                
+                <ul class="nav navbar-nav">
+                    <!-- Classic list -->
+                    <!-- Accordion demo -->
+                    <li class="dropdown fullWidthLeft"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-newspaper-o margin-right-10 fa-20"></i>OTHER BRIEFINGS <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdownScroll" role="menu">
+                            <li>
+                                <div class="stickyBar-content">
+    
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a href="https://www.dezshira.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">
+                                                    <span class="circle-border  pull-left"><i class="icon_DSA_logo sprit"></i></span> <strong>Dezan Shira & Associates</strong>
+                                                </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.dezshira.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                            </h4>
+                                            <p class="text-color-white marginMinusTop">All about our firm and the services it provides to foreign investors throughout Asia</p>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                        <span class="circle-border  pull-left"><i class="icon_asean_logo sprit"></i></span> <strong>News from ASEAN Briefing</strong>
+                                                    </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.aseanbriefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul class="unordered-list">
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/coronavirus-asia-asean-live-updates-by-country/" target="_blank">The Coronavirus in Asia and ASEAN – Live Updates by Country</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/the-indonesia-singapore-reciprocal-green-lane-salient-features/" target="_blank">The Indonesia-Singapore Reciprocal Green Lane: Salient Features</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/planning-your-2021-investment-budget-opportunities-in-vietnam/" target="_blank">Planning Your 2021 Investment Budget: Opportunities in Vietnam</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/an-introduction-to-doing-business-in-asean-2021-new-publication-from-dezan-shira-associates/" target="_blank">An Introduction to Doing Business in ASEAN 2021– New Publication from Dezan Shira & Associates</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/five-belt-road-projects-in-asean-that-sme-investors-should-be-looking-at-for-opportunities/" target="_blank">Five Belt & Road Projects in ASEAN that SME Investors Should be Looking at for Opportunities</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/indonesia-issues-latest-covid-19-immigration-measures/" target="_blank">Indonesia Issues Latest COVID-19 Immigration Measures</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/why-vietnam-has-become-a-promising-alternative-for-us-businesses-in-asia/" target="_blank">Why Vietnam Has Become a Promising Alternative for US Businesses in Asia</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/the-china-cambodia-fta-to-become-cambodias-first-bilateral-free-trade-agreement/" target="_blank">The China-Cambodia FTA to Become Cambodia’s First Bilateral Free Trade Agreement</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/planning-your-2021-investment-budget-opportunities-in-indonesia/" target="_blank">Planning Your 2021 Investment Budget: Opportunities in Indonesia</a></li>
+                                                                                                                <li><a href="https://www.aseanbriefing.com/news/eu-asean-business-council-publish-eu-asean-business-sentiment-survey/" target="_blank">EU-ASEAN Business Council Publish EU-ASEAN Business Sentiment Survey</a></li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                                        <span class="circle-border pull-left"><i class="icon_cb_logo sprit"></i></span> <strong>News from China Briefing</strong>
+                                                    </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.china-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul class="unordered-list">
+                                                                                                                <li><a href="https://www.china-briefing.com/news/china-coronavirus-updates-latest-developments-business-advisory-part-2/" target="_blank">China Coronavirus Updates: Latest Developments and Business Advisory</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/simplified-enterprise-deregistration-procedure-in-china-applicability-legal-risks/" target="_blank">What are the Guidelines for Simplified Enterprise Deregistration in China?</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/belt-and-road-weekly-investor-intelligence-1/" target="_blank">Belt and Road Weekly Investor Intelligence #1</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/china-signals-more-reforms-support-for-private-businesses/" target="_blank">China Signals More Reforms, Support for Private Businesses</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/planning-your-2021-investment-budget-opportunities-in-china/" target="_blank">Planning Your 2021 Investment Budget: Opportunities in China</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/establishing-a-branch-office-in-beijing-stay-compliant-with-the-new-social-insurance-policy/" target="_blank">Establishing a Branch Office in Beijing: Stay Compliant with the New Social Insurance Policy</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/china-individual-income-tax-social-insurance-calculator/" target="_blank">China Individual Income Tax and Social Insurance Calculator</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/tapping-into-new-growth-opportunities-in-chinas-fb-market/" target="_blank">Tapping into New Growth Opportunities in China's F&B Market</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/shenzhen-sez-comprehensive-pilot-reforms-plan-2020-2025-40-years-anniversary/" target="_blank">Shenzhen Announces Comprehensive Pilot Reforms Plan amid 40th SEZ Anniversary</a></li>
+                                                                                                                <li><a href="https://www.china-briefing.com/news/it-compliance-in-china-how-to-manage-requirements/" target="_blank">How to Manage IT Compliance Requirements in China</a></li>
+                                                                                                        </ul>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+    
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                                        <span class="circle-border pull-left"><i class="icon_ib_logo sprit"></i></span> <strong>News from India Briefing</strong>
+                                                    </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.india-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul class="unordered-list">
+                                                                                                                <li><a href="http://www.india-briefing.com/news/bankruptcy-code-amendments-logistics-gets-infrastructure-status-india-regulatory-brief-15605.html/" target="_blank">Bankruptcy Code Amendments, Logistics Gets Infrastructure Status – India Regulatory Brief</a></li>
+                                                                                                                <li><a href="http://www.india-briefing.com/news/italian-investment-india-15583.html/" target="_blank">Italian Investment into India</a></li>
+                                                                                                                <li><a href="http://www.india-briefing.com/news/gst-india-tax-rates-slashed-compliance-relaxed-15551.html/" target="_blank">The GST in India: Tax Rates Slashed, Some Compliance Relaxed</a></li>
+                                                                                                                <li><a href="http://www.india-briefing.com/news/demonetization-india-cash-bust-masterstroke-or-gross-miscalculation-15536.html/" target="_blank">Demonetization in India: Masterstroke or Gross Miscalculation?</a></li>
+                                                                                                                <li><a href="http://www.india-briefing.com/news/bankruptcy-rescue-rules-tightened-rbi-mandates-unique-code-large-borrowers-india-regulatory-brief-15525.html/" target="_blank">Bankruptcy Rescue Rules Tightened, RBI Mandates Unique Code for Large Borrowers – India Regulatory Brief</a></li>
+                                                                                                        </ul>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+    
+                                 
+    
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                                        <span class="circle-border pull-left"><i class="icon_vb_logo sprit"></i></span> <strong>News from Vietnam Briefing</strong>
+                                                    </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.vietnam-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul class="unordered-list">
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/vietnam-business-operations-and-the-coronavirus-updates.html/" target="_blank">Vietnam Business Operations and the Coronavirus: Updates</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/vietnam-strives-reform-business-procedures-ease-business-decree-122.html/" target="_blank">Vietnam Strives to Reform Business Procedures, Ease of Business: Decree 122</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/covid-19-vietnam-travel-updates-restrictions.html/" target="_blank">COVID-19 in Vietnam: Travel Updates and Restrictions</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/planning-2021-budget-opportunities-in-vietnam.html/" target="_blank">Planning Your 2021 Budget: Opportunities in Vietnam</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/vietnam-e-invoices-decree-123-delays-implementation-july-2022.html/" target="_blank">Vietnam’s E-invoices: Decree 123 Delays Implementation Until July 2022</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/how-to-establish-trading-company-vietnam.html/" target="_blank">How to Establish a Trading Company in Vietnam</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/representative-office-vietnam-procedures-compliances-setting-up-dissolution.html/" target="_blank">Representative Office in Vietnam: Procedures and Compliances for Setting Up and Dissolution – Latest Issue of Vietnam Briefing Magazine</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/qa-food-and-beverage-in-evfta-how-can-foreign-investors-qualify-for-preferential-tariffs.html/" target="_blank">Q&A: Food and Beverage in EVFTA: How Can Foreign Investors Qualify For Preferential Tariffs</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/evfta-vietnams-decree-111-details-preferential-export-and-import-tariff-structure.html/" target="_blank">EVFTA: Vietnam’s Decree 111 Details Preferential Export and Import Tariff Structure</a></li>
+                                                                                                                <li><a href="https://www.vietnam-briefing.com/news/fdi-data-shows-vietnams-steady-economic-growth.html/" target="_blank">FDI Data Shows Vietnam’s Steady Economic Growth</a></li>
+                                                                                                        </ul>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+    
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a href="#collapseSixRB" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                        <span class="circle-border pull-left"><i class="icon_rb_logo sprit"></i></span> <strong>News from Russia Briefing</strong>
+                                                    </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.russia-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                                </h4>
+                                            </div>
+                                            <div class="panel-collapse collapse" id="collapseSixRB">
+                                                <div class="panel-body">
+                                                    <ul class="unordered-list">
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-to-create-a-new-free-trade-zone-in-karelia-bordering-finland-and-the-european-union.html/" target="_blank">Russia To Create A New Free Trade Zone In Karelia, Bordering Finland And The European Union</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-coronavirus-business-updates.html/" target="_blank">Russia & Coronavirus: Business Updates</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-prepares-to-host-brics-2020-brics-strategy-for-economic-partnership-to-2025.html/" target="_blank">Russia Prepares To Host BRICS 2020: BRICS Strategy for Economic Partnership to 2025</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-eaeu-urge-china-to-help-create-a-new-eurasian-monetary-and-financial-system.html/" target="_blank">Russia & EAEU Urge China To Help Create A New Eurasian Monetary And Financial System</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-s-involvement-with-china-s-belt-and-road-initiative-interview-with-chris-devonshire-ellis.html/" target="_blank">Russia’s Involvement With China’s Belt And Road Initiative: Interview With Chris Devonshire-Ellis</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/china-eaeu-trade-share-increases-by-20-in-2020.html/" target="_blank">China-EAEU Trade Share Increases By 20% In 2020</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/purovsky-bridge-over-the-river-pur-opens-in-yakutia.html/" target="_blank">Purovsky Bridge Over The River Pur Opens In Yakutia</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-s-central-bank-introduces-potential-for-the-digital-ruble.html/" target="_blank">Russia’s Central Bank Introduces Potential For The Digital Ruble</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/russia-to-introduce-low-fixed-business-income-tax-rates-to-encourage-russian-investors-back-to-russia.html/" target="_blank">Russia To Introduce Low, Fixed Business Income Tax Rates To Encourage Russian Investors Back To Russia</a></li>
+                                                                                                                <li><a href="https://www.russia-briefing.com/news/eight-russian-belt-and-road-initiative-opportunities-coming-to-completion-that-foreign-investors-should-be-aware-of.html/" target="_blank">Eight Russian Belt And Road Initiative Opportunities Coming To Completion That Foreign Investors Should Be Aware Of</a></li>
+                                                                                                        </ul>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+    
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+    
+                                                    <a href="#collapseSRB" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                        <span class="circle-border pull-left"><i class="icon_srb_logo sprit"></i></span> <strong>News from Silk Road Briefing</strong>
+                                                    </a><a class="btn btn-default btn-sm text-uppercase pull-right margin-top-5 margin-right-10" href="https://www.silkroadbriefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-globe"></i> Visit Website</a>
+                                                </h4>
+                                            </div>
+                                            <div class="panel-collapse collapse" id="collapseSRB">
+                                                <div class="panel-body">
+                                                    <ul class="unordered-list">
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/11/02/how-does-china-know-its-belt-and-road-initiative-will-work-because-it-tried-it-out-on-itself-first/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">How Does China Know Its Belt And Road Initiative Will Work?  Because It Tried It Out On Itself First.</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/11/02/argentina-joins-asian-infrastructure-investment-bank/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">Argentina Joins Asian Infrastructure Investment Bank</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/11/02/chinas-belt-road-and-beyond-november-2-2020/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">China’s Belt & Road And Beyond – November 2, 2020</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/30/eight-african-belt-and-road-initiative-projects-that-global-investors-should-be-aware-of/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">Eight African Belt And Road Initiative Projects That Global Investors Should Be Aware Of</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/29/pakistans-lahore-opens-its-first-metro-line-as-cpec-starts-to-deliver/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">Pakistan’s Lahore Opens Its First Metro Line As CPEC Starts To Deliver</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/28/china-europe-rail-freight-doubles-in-2020-these-are-the-44-key-and-emerging-european-freight-hubs-to-watch/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">China-Europe Rail Freight Doubles In 2020. These Are The 44 Key And Emerging European Freight Hubs To Watch</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/27/belt-and-road-cpec-projects-in-pakistan-that-financiers-investors-should-be-looking-at/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">Belt And Road CPEC Projects In Pakistan That Financiers & Investors Should Be Looking At</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/26/chinas-belt-road-and-beyond-october-26-2020/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">China’s Belt & Road And Beyond – October 26, 2020</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/23/central-americas-belt-and-road-initiative-how-us-investors-can-take-advantage/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">Central America’s Belt And Road Initiative: How US Investors Can Take Advantage</a></li>
+                                                                                                                <li><a href="https://www.silkroadbriefing.com/news/2020/10/22/the-european-belt-road-railways-roads-ports-that-eu-investors-should-be-examining-for-post-completion-investment-opportunities/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">The European Belt & Road: Railways, Roads & Ports That EU Investors Should Be Examining For Post-Completion Investment Opportunities</a></li>
+                                                                                                        </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+    
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li><a href="https://www.asiabriefing.com/store/"><i class="fa fa-shopping-cart margin-right-10 fa-20"></i>STORE</a></li>
+    
+                    <li class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user  margin-right-10 fa-20"></i>SUBSCRIBE / LOGIN <span class="caret"></span></a>
+                        
+                                                <ul class="dropdown-menu widthFix" style="right: inherit;">
+                                <li>
+                                    <div class="stickyBar-content">
+                                        <div class="row">
+                                            <div class="col-ms-12 col-md-12">
+                                                <form role="form" action="https://www.asiabriefing.com/login?action=post_form" method="POST" class="top-login-form">
+                                                    <input type="hidden" name="ab_login_token" value="f03071871a00b19150124207711e1165c5ae95f267c06d8448b63f38c6497b59" />
+                                                                                                    <input type="hidden" name="redirect" value="https:~~www.asiabriefing.com~" />
+    
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Email address</label>
+                                                        <input type="email" placeholder="Enter email" id="email" name="email" class="form-control radius-none">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Password</label>
+                                                        <input type="password" placeholder="Password" id="password" name="password" class="form-control radius-none">
+                                                    </div>
+    
+    
+    
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox"> Remember Me
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <p><button class="btn btn-default btn-sm text-uppercase" type="submit">Login</button> <a class="btn btn-default btn-sm text-uppercase" href="https://www.asiabriefing.com/customer/register_steps">SUBSCRIBE</a></p>
+                                                    <!--<p class="small text-muted">If you do not have an account, please sign up <a href="https://www.dezshira.com/register.html">here</a>.</p>-->
+    
+                                                    <a class="btn btn-default btn-sm text-uppercase btn-block" href="https://www.asiabriefing.com/customer/forgot-password">Forgot your password?</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                                        </li>
+    
+                    <li class="dropdown fullWidthLeft"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-search margin-right-10 fa-20"></i>SEARCH <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="stickyBar-content">
+    
+                                    <form class="form-search" action="https://www.asiabriefing.com/news/">
+                                        <div class="right-inner-addon ">
+                                            <button class="btn btn-default" type="submit"><span class="fa fa-search"></span> Search</button><input type="text" name="s" placeholder="Search" class="form-control radius-none">
+                                        </div>
+                                        <div class="searchradio margin-top">
+                                            <ul class="list-inline">
+                                                <li><i class="fa fa-gear"></i> Search Options:</li>
+                                                <li>
+                                                    <div class="searchradio-selected">
+                                                        <input type="radio" name="news-search-option" value="general" id="search_option_general">
+                                                        <label for="search_option_general">General</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="searchradio-selected">
+                                                        <input type="radio" name="news-search-option" value="news" id="search_option_news" checked="">
+                                                        <label for="search_option_news">News</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            <span class="pull-left"><i class="fa fa-envelope-o margin-right-5"></i></span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu widthFixContact">
+                            <li>
+                                <div class="stickyBar-content">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div id="contactTabs">
+                                                <h4 class="margin-top-none"><i class="fa fa-info-circle"></i> Enquiries</h4>
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li role="presentation" class="active"><a href="#service-enquiries" aria-controls="service-enquiries" role="tab" data-toggle="tab">Professional Services </a></li>
+                                                    <li role="presentation"><a href="#other-enquiries" aria-controls="other-enquiries" role="tab" data-toggle="tab">Publications & Editorial</a></li>
+                                                </ul>
+                                                <div class="tab-content ContactTabContent">
+                                                    <div role="tabpanel" class="tab-pane active" id="service-enquiries">Need assistance on doing business in Asia? <br>
+                                                        <a href="https://www.dezshira.com/contact/asia" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-envelope-o"></i> Contact our professionals here</a></div>
+                                                    <div role="tabpanel" class="tab-pane" id="other-enquiries">Need help with your Publication Store orders? <br />Want to leave a comment or question? <br />
+                                                        <a href="//www.asiabriefing.com/contact.html"><i class="fa fa-envelope-o"></i> Contact us here</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="https://www.asiabriefing.com/news/"><i class="sprit icon_english-flag pull-left  language-flag"></i> <span class="caret"></span></a>
+    
+                        <ul class="dropdown-menu widthFixContact languagePostion">
+                            <li>
+                                <div class="stickyBar-content">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+    
+                                            <div id="contactTabs">
+                                                <h4 class="margin-top-none"><i class="fa fa-language" aria-hidden="true"></i> Language Desk News</h4>
+                                                <ul role="tablist" class="nav nav-tabs">
+                                                    <li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="other-enquiries" href="#german"><i class="sprit icon_germany-flag pull-left margin-right border-radius language-flag"></i> DE</a> </a></li>
+                                                    <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="other-enquiries" href="#italian"><i class="sprit icon_italy-flag pull-left margin-right border-radius language-flag"></i> IT</a></a></li>
+                                                    <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="other-enquiries" href="#french"><i class="sprit icon_france-flag pull-left margin-right border-radius language-flag"></i> FR</a></li>
+                                                    <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="other-enquiries" href="#spanish"><i class="sprit icon_span-flag pull-left margin-right border-radius language-flag"></i> ES</a></li>
+    
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div id="german" class="tab-pane active" role="tabpanel">
+                                                        <h5><a href="https://www.asiabriefing.com/news/category/language/german">Aktuelle Nachrichten</a></h5>
+                                                        <ul class="unordered-list">
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2016/01/unternehmensgrundung-thailand-teil-1-gesellschaften-mit-beschrankter-haftung-gmbh/?utm_source=rss&utm_medium=rss&utm_campaign=unternehmensgrundung-thailand-teil-1-gesellschaften-mit-beschrankter-haftung-gmbh">Unternehmensgründung in Thailand Teil 1 – Gesellschaften mit beschränkter Haftung (GmbH)</a></li>
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2016/01/betriebskosten-in-myanmar-im-vergleich-mit-china/?utm_source=rss&utm_medium=rss&utm_campaign=betriebskosten-in-myanmar-im-vergleich-mit-china">Betriebskosten in Myanmar im Vergleich mit China</a></li>
+                                                                                                                </ul>
+                                                    </div>
+                                                    <div id="italian" class="tab-pane" role="tabpanel">
+                                                        <h5><a href="https://www.asiabriefing.com/news/category/language/italian">Notizie Recenti</a></h5>
+                                                        <ul class="unordered-list">
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2019/03/sara-palermo-il-nuovo-porto-della-via-della-seta/?utm_source=rss&utm_medium=rss&utm_campaign=sara-palermo-il-nuovo-porto-della-via-della-seta">Sara` Palermo il nuovo porto della Via Della Seta?</a></li>
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2016/03/convenzione-sulla-doppia-imposizione-tra-italia-e-hong-kong-un-update-e-altre-curiosita/?utm_source=rss&utm_medium=rss&utm_campaign=convenzione-sulla-doppia-imposizione-tra-italia-e-hong-kong-un-update-e-altre-curiosita">Convenzione sulla Doppia Imposizione tra Italia e Hong Kong: Un update e altre curiosità</a></li>
+                                                                                                                </ul>
+                                                    </div>
+    
+                                                    <div id="french" class="tab-pane" role="tabpanel">
+                                                        <h5><a href="https://www.asiabriefing.com/news/category/language/french">Dernières Nouvelles</a></h5>
+                                                        <ul class="unordered-list">
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2013/09/obtenir-un-visa-de-travail-et-un-permis-de-sejour-en-chine/?utm_source=rss&utm_medium=rss&utm_campaign=obtenir-un-visa-de-travail-et-un-permis-de-sejour-en-chine">Obtenir un visa de travail et un permis de séjour en Chine</a></li>
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2013/09/utiliser-les-zones-de-developpement-en-chine/?utm_source=rss&utm_medium=rss&utm_campaign=utiliser-les-zones-de-developpement-en-chine">Utiliser les Zones de Développement en Chine</a></li>
+                                                                                                                </ul>
+                                                    </div>
+                                                    <div id="spanish" class="tab-pane" role="tabpanel">
+                                                        <h5><a href="https://www.asiabriefing.com/news/category/language/spanish">Últimas Noticias</a></h5>
+                                                        <ul class="unordered-list">
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2013/10/incentivos-disponibles-para-la-exportacion-china/?utm_source=rss&utm_medium=rss&utm_campaign=incentivos-disponibles-para-la-exportacion-china">Incentivos disponibles para la exportación a China</a></li>
+                                                                                                                        <li><a href="https://www.asiabriefing.com/news/2013/10/comprension-de-titularidad-estatal-de-las-empresas-en-china/?utm_source=rss&utm_medium=rss&utm_campaign=comprension-de-titularidad-estatal-de-las-empresas-en-china">Comprensión de Titularidad Estatal de las Empresas en China</a></li>
+                                                                                                                </ul>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <nav class="navbar navbar-inverse navbar-black">
+            <div class="container">
+              <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Dezan Shira & Associates</a></li>
+                  <li><a href="#">Personnel</a></li>
+                  <li><a href="#">Publication Store</a></li>
+                  <li><a href="#">Asiapedia</a></li>
+                  <li><a href="#">Events</a></li>
+                  <li><a href="#">Media Pack</a></li>
+                  <li><a href="#">Connect with Us</a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </nav>
+    </div>
+    </header>
+<section class="masthead-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="banner-text">
+                    <div class="banner-content"> <h1>Overview</h1></div>
+                </div>
+            </div>
+    </div>
+    </div>
+    <div class="masthead-banner-bg">
+        <img alt="" src="images/banners/ab-inner-page-bg.jpg">
+    </div>
+</section>
+
+
+<section class="inner-main-block">
+<div class="container">
+  <div class="row">
+  <div class="col-sm-3 col-md-3 col-3-width padd-left-right-none">
+  <div id="menu">
+<div id="leftBar-icon">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+        <p id="menu-text" data-text-swap="Hide Submenu" data-text-original="Show Submenu">Show Submenu</p>
+        </div>
+  	<div class="side-bar">
+
+<div class="side-bar-bg side-bar-inner">
+<div id="MainMenu">
+<div class="list-group panel radius-none">
+<div class="block no-padding" id="sidebarnav">
+  <ul class="collapsible">
+    <li><a href="" class="list-group-item radius-none" data-parent="#MainMenu">About Us <i class="sprit icon_white-down-arrow"></i></a></li>
+    <li class="level1"><a href="https://www.asiabriefing.com/about-us/overview.html">Overview</a></li>
+    <li class="level1"><a href="https://www.asiabriefing.com/about-us/history.html">History</a></li>
+    <li class="level1"><a href="https://www.asiabriefing.com/personnel">Personnel</a></li>
+    <li class="level1"><a href='https://www.asiabriefing.com/personnel/contributor'>Expert Contributors</a></li>
+    <li class="level1"><a href="https://www.asiabriefing.com/about-us/social-media.html">Social Media</a></li>
+    <li class="level1"><a href="https://www.asiabriefing.com/about-us/subscription.html">Email Newsletter / Subscription Service</a></li>
+    <!--<li class="level1"><a href="https://www.asiabriefing.com/faq/asia-briefing">Frequently Asked Questions</a></li>-->
+	
+		  </ul>
+</div>
+</div><!--/list-group-->
+</div><!--/MainMenu-->
+</div><!--/side-bar-bg-->
+</div><!--/side-bar-->  </div>
+  <div class="col-sm-9 col-md-9 col-9-width inner-right-block">
+ 
+
+	<div class="top-content border-none">
+    <div class="content">
+<p>Asia Briefing is a Hong Kong registered company and is wholly owned by the Asian professional services firm, Dezan Shira & Associates. This gives us a unique editorial angle as we can back up our editorial with professional legal, tax and related business and foreign trade advise and experience from qualified and experienced lawyers, tax advisers and foreign investors. Asia Briefing concentrates on foreign trade and investment into the Asia region. </p>
+<p>Our editorial is based throughout Asia and we maintain full time staff, journalists and writers, supported by Dezan Shira & Associates professionals in offices across Hong Kong, China, the ASEAN nations, India, Russia and uniquely, along the Belt & Road Initiative. This gives us a specific, foreign trade and investment intelligence reach across the entire Chinese and Asian trade region. Unlike other media outlets concerning China and Asia, we are multilateral and can connect the dots throughout Asia.   </p>
+<p>Our first publication was 'China Briefing' which appeared in 1999. </p>
+<p>Our articles are free access, magazines and guides are also complimentary however require a subscription to access. Subscribers also receive a weekly email update. Subscriptions may be obtained <a href="http://www.asiabriefing.com/customer/register">here</a>.</p>
+<p>For editorial and related matters, please contact us <a href="mailto:atasia@asiabriefing.com">atasia@asiabriefing.com</a></p>
+<p>For advertising and promotional enquiries, please contact us <a href="mailto:atadvertising@asiabriefing.com">atadvertising@asiabriefing.com</a></p>
+</div></div><!--/col-->
+    
+    <div class="right-content-block">
+    	<ul class="social-media-inner">
+<li id='rhs_share_email'></li>
+<li><a onclick="shareLink(document.URL,'facebook');" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a onclick="shareLink(document.URL,'linkedin');" href="#"><i class="fa fa-linkedin"></i> </a></li>
+<li><a onclick="shareLink(document.URL,'twitter');" href="#"><i class="fa fa-twitter"></i></a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="right-box-block margin-top20">
+  <i class="fa fa-headphones fa-font-size46"></i>
+    <h4 class="text-center">Multimedia</h4>
+    <p class="text-center">
+		<a href="http://www.dezshira.com/multimedia/view/strategies-for-effectively-managing-company-downsizing-and-salary-reduction.html" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);">Strategies for Effectively Managing Company Downsizing and Salary Reduction</a>
+	</p>
+    <a href="http://www.dezshira.com/multimedia/view/strategies-for-effectively-managing-company-downsizing-and-salary-reduction.html" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" class="btn btn-default btn-sm text-uppercase"><i class="fa fa-music"></i> TUNE IN</a>
+</div>
+<div class="clearfix"></div>
+
+<div class="right-box-block margin-top20 grey-bg">
+    <p class="text-center"><i class="fa fa-calendar fa-font-size46"></i></p> 
+    <h4 class="text-center">Events</h4>
+	<div class="cycle">
+	<ul>
+			<li>
+			<a href="http://www.dezshira.com/events/details/shifting-tides-comparing-the-economic-future-of-china-vietnam-singapore-and-hong-kong-8705.html">Shifting Tides: Comparing the Economic Future of China, Vietnam, Singapore, and Hong Kong</a> <br />
+			<strong>Marco Förster, Senior Associate<br /></strong>Webinar | 3 July Friday | 3PM-4PM China Time <br />		</li>
+			<li>
+			<a href="http://www.dezshira.com/events/details/post-covid-19-shifting-of-supply-chains-to-india-8710.html">Post-COVID-19: Shifting of Supply Chains to India</a> <br />
+			<strong>Koushan Das, Assistant Manager<br /></strong>Webinar | July 07, 2020 | 2:30 PM - 3:30 PM IST<br />		</li>
+			<li>
+			<a href="http://www.dezshira.com/events/details/operations-and-supply-chain-in-india-for-manufacturing-and-it-companies-8716.html">Operations and supply chain in India for Manufacturing and IT companies</a> <br />
+			<strong>Dustin Daugherty, Head of North America Business Development<br /></strong>Webinar | 8:30 am MST<br />		</li>
+			<li>
+			<a href="http://www.dezshira.com/events/details/covid-19-impact-response-and-opportunities-in-vietnam-8730.html">COVID-19: Impact, Response and Opportunities in Vietnam</a> <br />
+			<strong>Trent Davies, Manager<br /></strong>Webinar | 4pm EST / 1pm PST<br />		</li>
+			<li>
+			<a href="http://www.dezshira.com/events/details/strategies-for-effectively-managing-company-downsizing-and-salary-reduction-in-the-wake-of-covid-19--cn-8725.html">Xuzhou - Strategies for Effectively Managing Company Downsizing and Salary Reduction in the Wake of </a> <br />
+			<strong>Allan Xu, Manager<br /></strong>Xuzhou | July 23, 2020 | 2:00 PM - 3:30 PM<br />		</li>
+			<li>
+			<a href="http://www.dezshira.com/events/details/china-market-entry-strategies-8578.html">China Market Entry Strategies: China Britain Trade Expo</a> <br />
+			<strong>Maria Kotova, Head of UK and Ireland Business Development<br /></strong>London | September 11, 2020 | 9:00 AM<br />		</li>
+			<li>
+			<a href="http://www.dezshira.com/events/details/st-petersburg-international-economic-forum-2021-8580.html">St. Petersburg International Economic Forum 2021</a> <br />
+			<strong>Chris Devonshire-Ellis, Chairman & Founding Partner<br />Maria Kotova, Head of UK and Ireland Business Development<br /></strong>St. Petersburg | 3-6th June, 2021<br />		</li>
+		</ul>
+	<div class="cycle_controller"></div>
+	</div><!--/cycle-->
+</div>
+<div class="clearfix"></div>
+    </div><!--/row-->
+  </div>
+  
+  </div> <!--/row-->
+</div><!--/container-->
+</section>
+
+<footer>
+    <section class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="news-and-socail">
+            <div class="briefing-news">
+              <small class="text-uppercase">Regional Business News</small>
+              <ul class="list-inline list-align">
+                <li>
+                  <div class="timeline-dsa"><a href="https://www.dezshira.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" data-toggle="tooltip" data-placement="top" title="DEZAN SHIRA & ASSOCIATES"><i class="sprit icon_dsa_logo text-middle"></i></a></div>
+                </li>
+                <li><span class="border-divider"></span></li>
+                <li>
+                  <div class="circle-border"><a href="https://www.asiabriefing.com" data-toggle="tooltip" data-placement="top" title="Asia Briefing"><i class="sprit icon_ab_logo text-middle"></i></a></div>
+                </li>
+                <li><span></span></li>
+                <li>
+                  <div class="circle-border"><a href="https://www.aseanbriefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" data-toggle="tooltip" data-placement="top" title="ASEAN Briefing"><i class="sprit icon_asean_logo text-middle"></i></a></div>
+                </li>
+                <li><span></span></li>
+                <li>
+                  <div class="circle-border"><a href="https://www.china-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" data-toggle="tooltip" data-placement="top" title="China Briefing"><i class="sprit icon_cb_logo text-middle"></i></a></div>
+                </li>
+                <li><span></span></li>
+                <li>
+                  <div class="circle-border"><a href="https://www.india-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" data-toggle="tooltip" data-placement="top" title="India Briefing"><i class="sprit icon_ib_logo text-middle"></i></a></div>
+                </li>
+                <li><span></span></li>
+                <li>
+                  <div class="circle-border"><a href="https://www.vietnam-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" data-toggle="tooltip" data-placement="top" title="Vietnam Briefing"><i class="sprit icon_vb_logo text-middle"></i></a></div>
+                </li>
+                <li><span></span></li>
+                <li>
+                  <div class="circle-border"><a href="https://www.russia-briefing.com/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);" data-toggle="tooltip" data-placement="top" title="" data-original-title="Russia Briefing"><i class="sprit icon_rb_logo text-middle"></i></a></div>
+                </li>
+                <li><span class="border-divider"></span></li>
+              </ul>
+            </div>
+            <div class="social-media">
+                <small class="text-uppercase">Share &amp; Follow</small>
+                <ul class="list-inline padding-top">
+                  <li>
+                    <div class="circle-border bg-yellow"><a href="https://plus.google.com/+Asiabriefing" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-google-plus"></i></a></div>
+                  </li>
+                  <li><span></span></li>
+                  <li>
+                    <div class="circle-border bg-red"><a href="http://www.facebook.com/pages/Asia-Briefing-Media/316616438363795" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-facebook"></i></a></div>
+                  </li>
+                  <li><span></span></li>
+                  <li>
+                    <div class="circle-border bg-green"><a href="https://www.linkedin.com/company/3656465/" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-linkedin"></i></a></div>
+                  </li>
+                  <li><span></span></li>
+                  <li>
+                    <div class="circle-border bg-purpal"><a href="https://twitter.com/AsiaBriefing" target="_blank" onClick="ga('send', 'event', 'Outbound Link', 'click', event.target.href);"><i class="fa fa-twitter"></i></a></div>
+                  </li>
+                  <li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  
+    </section>
+    <section class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-16 col-lg-6"> ©1992-2020 Dezan Shira & Associates All Rights Reserved.</div>
+          <div class="col-md-16 col-lg-6"><ul class="list-inline">
+              <li><a href="https://www.asiabriefing.com/contact.html">Contact Us</a></li>
+              <li><a href="https://www.asiabriefing.com/about-us/subscription.html">Email Alerts</a></li>
+              <li><a href="https://www.asiabriefing.com/about-us/social-media.html">Social Media</a></li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+</div>
+<!--/wrapper-->
+<div class="scroll-top-wrapper ">
+  <div class="scroll-top-inner pull-left"><i class="sprit icon_white-up-arrow"></i></div>
+  <div class="scroll-text pull-left text-uppercase">Scroll to top</div>
+</div>
+
+
+<script>
+  $(document).ready(function($) {
+    $('input[name="news-search-option"]').on('change', function() {
+      if ($(this).val() == 'general') {
+
+        $(".form-search").attr("action", "https://www.asiabriefing.com/search.html/?s=wages");
+
+      } else {
+
+        $(".form-search").attr("action", "https://www.asiabriefing.com/news/?s=wages");
+      }
+    });
+  });
+</script>
+<!-- <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.all.min.js"></script> -->
+<script>
+  $("div#sidebarnav ul.collapsible li a[href$='/about-us/overview.html']").parent().addClass("active");
+</script>
+<!-- <script src="js/custom.js"></script> -->
+<script src="js/scripts-min.js"></script>
+
+<!--AB clickdimensions-->
+<script type="text/javascript" src="https://analytics-au.clickdimensions.com/ts.js"> </script>
+<script type="text/javascript">
+  var cdAnalytics = new clickdimensions.Analytics('analytics-au.clickdimensions.com');
+  cdAnalytics.setAccountKey('aHzoBJhlGD02xy7dPmDtCQ');
+  cdAnalytics.setDomain('asiabriefing.com');
+  cdAnalytics.setScore(typeof(cdScore) == "undefined" ? 0 : (cdScore == 0 ? null : cdScore));
+  cdAnalytics.trackPage();
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"3283726c53","applicationID":"2874630","transactionName":"Z1AGZkEHD0JVVxVQWF4aMUBaSQhfUFEZF0dYRQ==","queueTime":0,"applicationTime":2,"atts":"SxcFEAkdHEw=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+
+</html>

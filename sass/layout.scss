@@ -1,0 +1,139 @@
+﻿body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+#wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.section-wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: inherit;
+}
+.flex-wrapper {
+  display: flex;
+}
+.flex-wrapper--spacing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-spacing {
+  display: flex;
+  justify-content: space-between;
+}
+/* top section column */
+.column-35per-left {
+  padding-top: 4rem;
+  background: red;
+}
+.column-65per-right {
+  padding: 2rem 0 4rem;
+  background: green;
+}
+.column-75per-left {
+    padding-top: 4rem;
+    background: rgb(93, 16, 180);
+  }
+  .column-25per-right {
+    padding: 2rem 0 4rem;
+    background: rgb(234, 238, 20);
+  }
+
+  .column-50per-left {
+    padding-top: 4rem;
+    background: rgb(180, 16, 131);
+  }
+  .column-50per-right {
+    padding: 2rem 0 4rem;
+    background: rgb(173, 11, 248);
+  }
+
+  .column-33per {
+    padding-top: 4rem;
+    background: rgb(41, 1, 1);
+  }
+
+.article-section {
+    position: relative;
+    .flex-spacing {
+      flex-direction: column;
+    }
+  }
+
+@media (min-width: 1100px) {
+  .column-35per-left {
+    padding: 4rem 3.5rem 4rem 0;
+    width: 35%;
+  }
+  .column-65per-right {
+    padding: 4rem 0 4rem 3.5rem;
+    width: 65%;
+  }
+  .column-75per-left {
+    padding: 4rem 3.5rem 4rem 0;
+    width: 75%;
+  }
+  .column-25per-right {
+    padding: 4rem 0 4rem 3.5rem;
+    width: 25%;
+  }
+  .column-50per-left {
+    padding: 4rem 3.5rem 4rem 0;
+    width: 50%;
+  }
+  .column-50per-right {
+    padding: 4rem 0 4rem 3.5rem;
+    width: 50%;
+  }
+  .column-33per {
+    padding: 4rem 3.5rem 4rem 0;
+    width: 50%;
+  }
+  .article-section {
+    position: relative;
+    .flex-spacing {
+      flex-direction: row;
+    }
+  }
+}
+/* end */
+
+
+/* top section column */
+
+  
+
+  /* end */
+@media (min-width: 1200px) {
+  .section-wrapper {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1440px) {
+  .section-wrapper {
+    max-width: 1440px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-device-width: 640px) {
+  /*contact form*/
+}
+@media only screen and (min-width: 641px) and (max-device-width: 667px) {
+}
+@media screen and (min-width: 1520px) {
+  #contactButton {
+    right: calc(50% - 750px);
+  }
+}
